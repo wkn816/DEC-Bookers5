@@ -1,0 +1,40 @@
+<% if @model == 'user'%>
+<h1>User search of "<%= @content%>"</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @datas.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% if @model == 'book'%>
+<h1>Book search of "<%= @content%>"</h1>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>title</th>
+      <th>option<th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @datas.each do |book| %>
+      <tr>
+        <td><%= attachment_image_tag(book.user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
